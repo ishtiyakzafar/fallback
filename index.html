@@ -16,16 +16,16 @@
     function openApp() {
       // Deep Link: 'https://fallback-nine.vercel.app/?page=/deeplink/1234'
 
-      // var path = window.location.search.split('=')[1]; // Extract path from query param
-      // var appUrl = `intent://deeplink-khaki.vercel.app${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+      var path = window.location.search.split('=')[1]; // Extract path from query param
+      var appUrl = `intent://deeplink-khaki.vercel.app${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
 
-      // window.location.replace(appUrl);
+      window.location.replace(appUrl);
 
       // Set a timeout to redirect to the Play Store
       timeoutId = setTimeout(function () {
         window.alert('hello')
         window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN");
-      }, 2000);
+      }, 5000);
     }
 
     // Listen for visibility changes
