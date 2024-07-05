@@ -15,10 +15,11 @@
 
     function openApp() {
       // Deep Link: 'https://fallback-nine.vercel.app/?page=/deeplink/1234'
+      // https://url.uk.m.mimecastprotect.com/s/P6GECL576CRrKmqhB4gHj?domain=deeplink-khaki.vercel.app
       var path = window.location.search.split('=')[1]; // Extract path from query param
 
       if (path.includes('deeplink')) {
-        var appUrl = `intent://deeplink-khaki.vercel.app${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+        var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
 
         window.location.replace(appUrl);
 
