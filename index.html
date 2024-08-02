@@ -9,7 +9,7 @@
 
 <body>
   <p>Opening app...</p>
-  <a class="appUrl" href="appUrl"></a>
+  <!-- <a class="appUrl" href="appUrl"></a> -->
   <script>
     let timeoutId;
     var appUrl;
@@ -22,7 +22,7 @@
         // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
         appUrl = "https://aaauat.indiainfoline.com" + {path};
         alert(appUrl);
-        document.querySelector('.appUrl').href = appUrl;
+        // document.querySelector('.appUrl').href = appUrl;
         window.location.replace(appUrl);
 
         // Set a timeout to redirect to the Play Store
