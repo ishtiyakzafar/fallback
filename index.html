@@ -9,23 +9,18 @@
 
 <body>
   <p>Opening app...</p>
-  <p>CHECK</p>
   <script>
     let timeoutId;
     function openApp() {
-      alert("in function");
       const userAgent = navigator.userAgent || navigator.vendor || window.opera;
       // Deep Link: 'https://fallback-nine.vercel.app/?page=/deeplink/1234'
       // https://url.uk.m.mimecastprotect.com/s/P6GECL576CRrKmqhB4gHj?domain=deeplink-khaki.vercel.app
       var path = window.location.search.split('=')[1]; // Extract path from query param
 
       if (path.includes('deeplink')) {
-        alert("deeplink");
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
           // iOS logic
-          alert("in iOS");
           const appUrl = "aaa://aaauat.indiainfoline.com" + path ; // Replace with your app's URL scheme
-          alert(appUrl);
           window.location.replace(appUrl);
 
           // Fallback to App Store
@@ -33,7 +28,6 @@
             window.location.replace("https://apps.apple.com/us/app/"); // Replace with your App Store URL
           }, 2000);
         } else if (/android/i.test(userAgent)) {
-          alert("android");
 
           // Android logic
           const appUrl = "intent://aaauat.indiainfoline.com" + path + "#Intent;scheme=https;package=com.iifl.iiflaaa;end"; // Replace with your app's URL scheme and package name
@@ -45,7 +39,6 @@
           }, 2000);
 
         } else {
-          alert("else");
 
           // For non-iOS and non-Android devices, redirect to a generic page or show an error
           window.location.replace("https://aaauat.indiainfoline.com/"); // Replace with your website URL
