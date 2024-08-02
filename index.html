@@ -14,6 +14,7 @@
     let timeoutId;
     function openApp() {
       alert("in function");
+      const userAgent = navigator.userAgent || navigator.vendor || window.opera;
       // Deep Link: 'https://fallback-nine.vercel.app/?page=/deeplink/1234'
       // https://url.uk.m.mimecastprotect.com/s/P6GECL576CRrKmqhB4gHj?domain=deeplink-khaki.vercel.app
       var path = window.location.search.split('=')[1]; // Extract path from query param
