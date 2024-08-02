@@ -19,8 +19,8 @@
       var path = window.location.search.split('=')[1]; // Extract path from query param
 
       if (path.includes('deeplink')) {
-        var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
-        // var appUrl = "itms://itunes.apple.com/us/app/google-maps-transit-food/id585027354?mt=8";
+        // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+        var appUrl = "https://aaauat.indiainfoline.com" + {path};
 
         window.location.replace(appUrl);
 
