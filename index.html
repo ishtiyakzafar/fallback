@@ -20,7 +20,9 @@
 
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
           // iOS logic
+          alert("in iOS");
           const appUrl = "aaa://aaauat.indiainfoline.com" + path ; // Replace with your app's URL scheme
+          alert(appUrl);
           window.location.replace(appUrl);
 
           // Fallback to App Store
