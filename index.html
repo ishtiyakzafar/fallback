@@ -20,8 +20,7 @@
 
       if (path.includes('deeplink')) {
         // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
-        appUrl = "https://aaauat.indiainfoline.com" + {path};
-        alert(path);
+        appUrl = "https://aaauat.indiainfoline.com" + path;
         alert(appUrl);
         document.querySelector('.appUrl').href = appUrl;
         window.location.replace(appUrl);
