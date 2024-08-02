@@ -18,16 +18,17 @@
       // https://url.uk.m.mimecastprotect.com/s/P6GECL576CRrKmqhB4gHj?domain=deeplink-khaki.vercel.app
       var path = window.location.search.split('=')[1]; // Extract path from query param
 
-      // if (path.includes('deeplink')) {
-      //   var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+      if (path.includes('deeplink')) {
+        // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+        var appUrl = "itms://itunes.apple.com/us/app/google-maps-transit-food/id585027354?mt=8";
 
-      //   window.location.replace(appUrl);
+        window.location.replace(appUrl);
 
-      //   // Set a timeout to redirect to the Play Store
-      //   timeoutId = setTimeout(function () {
-      //     window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN");
-      //   }, 2000);
-      // }
+        // Set a timeout to redirect to the Play Store
+        timeoutId = setTimeout(function () {
+          window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN");
+        }, 2000);
+      }
     }
 
     // Listen for visibility changes
