@@ -47,7 +47,7 @@
 </html> -->
 
 
-
+<!-- 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -70,7 +70,7 @@
       if (path.includes('deeplink')) {
         if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
           // iOS logic
-          const appUrl = "itms://aaauat.indiainfoline.com/" + path; // Replace with your app's URL scheme
+          const appUrl = "itms://aaauat.indiainfoline.com/deeplink/123"; // Replace with your app's URL scheme
           window.location.replace(appUrl);
 
           // Fallback to App Store
@@ -79,7 +79,6 @@
           // }, 2000);
         } else if (/android/i.test(userAgent)) {
           // Android logic
-          // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
           const appUrl = "intent://aaauat.indiainfoline.com/" + path + "#Intent;scheme=https;package=com.iifl.iiflaaa;end"; // Replace with your app's URL scheme and package name
           window.location.replace(appUrl);
 
@@ -105,4 +104,4 @@
   </script>
 </body>
 
-</html>
+</html> -->
