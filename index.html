@@ -9,28 +9,39 @@
 
 <body>
   <p>Opening app...</p>
-  <a class="appUrl" href="appUrl">CHECK</a>
   <script>
     let timeoutId;
-    var appUrl;
     function openApp() {
       // Deep Link: 'https://fallback-nine.vercel.app/?page=/deeplink/1234'
       // https://url.uk.m.mimecastprotect.com/s/P6GECL576CRrKmqhB4gHj?domain=deeplink-khaki.vercel.app
       var path = window.location.search.split('=')[1]; // Extract path from query param
 
       if (path.includes('deeplink')) {
-        // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
-        appUrl = "whatsapp://aaauat.indiainfoline.com" + path;
-        
-        document.querySelector('.appUrl').href = appUrl;
-        window.location.replace(appUrl);
 
-        // Set a timeout to redirect to the Play Store
-        setTimeout(function () {
-          alert(appUrl);
-          // window.location.replace("itms://itunes.apple.com/us/app/google-maps-transit-food/id585027354?mt=8");
-          // window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN");
-        }, 2000);
+        if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+          // iOS logic
+          const appUrl = "aaa://aaauat.indiainfoline.com" + path ; // Replace with your app's URL scheme
+          window.location.replace(appUrl);
+
+          // Fallback to App Store
+          timeoutId = setTimeout(function () {
+            window.location.replace("https://apps.apple.com/us/app/"); // Replace with your App Store URL
+          }, 2000);
+        } else if (/android/i.test(userAgent)) {
+
+          // Android logic
+          const appUrl = "intent://aaauat.indiainfoline.com" + path + "#Intent;scheme=https;package=com.iifl.iiflaaa;end"; // Replace with your app's URL scheme and package name
+          window.location.replace(appUrl);
+
+          // Fallback to Play Store
+          timeoutId = setTimeout(function () {
+            window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN"); // Replace with your Play Store URL
+          }, 2000);
+
+        } else {
+          // For non-iOS and non-Android devices, redirect to a generic page or show an error
+          window.location.replace("https://aaauat.indiainfoline.com/"); // Replace with your website URL
+        }
       }
     }
 
