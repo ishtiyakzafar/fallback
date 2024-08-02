@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -44,4 +44,62 @@
   </script>
 </body>
 
+</html> -->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opening App...</title>
+</head>
+<body>
+    <p>Opening app...</p>
+    <script>
+        let timeoutId;
+
+        function openApp() {
+            const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+            const path = window.location.search.split('=')[1]; // Extract path from query param
+
+            if (path.includes('deeplink')) {
+                if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+                    // iOS logic
+                    const appUrl = "myapp://aaauat.indiainfoline.com/" + path; // Replace with your app's URL scheme
+                    window.location.replace(appUrl);
+
+                    // Fallback to App Store
+                    timeoutId = setTimeout(function () {
+                        window.location.replace("https://apps.apple.com/us/app/your-app-name/idYOUR_APP_ID"); // Replace with your App Store URL
+                    }, 2000);
+                } else if (/android/i.test(userAgent)) {
+                    // Android logic
+                            // var appUrl = `intent://aaauat.indiainfoline.com${path}#Intent;scheme=https;package=com.iifl.iiflaaa;end`;
+                    const appUrl = "intent://aaauat.indiainfoline.com/" + path + "#Intent;scheme=https;package=com.iifl.iiflaaa;end"; // Replace with your app's URL scheme and package name
+                    window.location.replace(appUrl);
+
+                    // Fallback to Play Store
+                    timeoutId = setTimeout(function () {
+                        window.location.replace("https://play.google.com/store/apps/details?id=com.iifl.iiflaaa&hl=en_IN"); // Replace with your Play Store URL
+                    }, 2000);
+                } else {
+                    // For non-iOS and non-Android devices, redirect to a generic page or show an error
+                    window.location.replace("https://your-website.com"); // Replace with your website URL
+                }
+            }
+        }
+
+        // Listen for visibility changes
+        document.addEventListener('visibilitychange', function () {
+            if (document.visibilityState === 'hidden') {
+                clearTimeout(timeoutId);
+            }
+        });
+
+        window.onload = openApp;
+    </script>
+</body>
 </html>
